@@ -13,6 +13,10 @@ const links = [
 
 export function NavBar() {
   const pathname = usePathname()
+  function isActive(href: string) {
+    if (href === '/') return pathname === '/'
+    return pathname === href || pathname.startsWith(href + '/')
+  }
   return (
     <header className="border-b border-slate-200 dark:border-slate-800">
       <div className="container flex h-14 items-center justify-between gap-4">
@@ -20,7 +24,7 @@ export function NavBar() {
           <Link href="/" className="font-semibold">Open Ticket</Link>
           <nav className="hidden md:flex items-center gap-2">
             {links.map(l => (
-              <Link key={l.href} href={l.href} className={cn('btn-ghost text-sm', pathname === l.href && 'bg-slate-100 dark:bg-slate-800')}>
+              <Link key={l.href} href={l.href} className={cn('btn-ghost text-sm', isActive(l.href) && 'bg-slate-100 dark:bg-slate-800')}>
                 {l.label}
               </Link>
             ))}
