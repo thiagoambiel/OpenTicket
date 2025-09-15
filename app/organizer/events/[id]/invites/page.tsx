@@ -2,7 +2,6 @@ import { requireUser } from '@/lib/auth'
 import { getEvent } from '@/lib/data/events'
 import { notFound, redirect } from 'next/navigation'
 import InviteGenerator from './ui/InviteGenerator'
-import BannerUpload from './ui/BannerUpload'
 import Link from 'next/link'
 import DeleteEventButton from '@/components/DeleteEventButton'
 import { format } from 'date-fns'
@@ -32,7 +31,6 @@ export default async function Page({ params }: { params: { id: string } }) {
           {admin && <DeleteEventButton id={ev.id} />}
         </div>
       </div>
-      {admin && <BannerUpload eventId={ev.id} currentUrl={ev.bannerUrl} />}
       {admin && <PromotersManager eventId={ev.id} />}
       <InviteGenerator eventId={ev.id} />
     </div>
