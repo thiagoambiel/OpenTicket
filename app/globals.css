@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 255 255 255;
+  --fg: 15 23 42;
+}
+
+.dark {
+  --bg: 2 6 23;
+  --fg: 226 232 240;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
+
+.container {
+  @apply max-w-5xl mx-auto px-4;
+}
+
+.card {
+  @apply rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm;
+}
+
+.btn {
+  @apply inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
+}
+
+.btn-primary {
+  @apply btn bg-brand text-white hover:bg-brand-dark;
+}
+
+.btn-ghost {
+  @apply btn bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800;
+}
+
+.input {
+  @apply w-full rounded-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 py-2 outline-none focus:ring-2 focus:ring-brand;
+}
+
+.label {
+  @apply text-sm font-medium text-slate-700 dark:text-slate-300;
+}
+
+.muted {
+  @apply text-slate-500 dark:text-slate-400 text-sm;
+}
+

@@ -1,0 +1,6 @@
+node_modules
+.next
+.env*
+data/*.json
+!.env.local.example
+public/uploads
